@@ -44,7 +44,7 @@ def main():
     )
 
     # view output
-    tqdm.write("IG Attributions: {}".format(attributions))
+    tqdm.write("IG Attributions:   {}".format(attributions))
     tqdm.write("Convergence Delta: {}".format(delta))
 
 
