@@ -1,3 +1,4 @@
+#!/usr/env python3
 import glob
 import json
 import os
@@ -62,6 +63,8 @@ def captum_on_image(
         inputs=model_input, target=pred_label_idx, n_steps=200
     )
 
+    fig_size = (12, 6)
+
     # visualize the image and attributions by overlaying the attributions on the image
     grayscale_cmap = LinearSegmentedColormap.from_list(
         "custom blue", [(0, "#ffffff"), (0.25, "#000000"), (1, "#000000")], N=256
@@ -73,6 +76,7 @@ def captum_on_image(
     #     cmap=grayscale_cmap,
     #     show_colorbar=True,
     #     sign="positive",
+    #     fig_size=fig_size,
     #     outlier_perc=1,
     # )
 
@@ -95,6 +99,7 @@ def captum_on_image(
         methods=["original_image", "heat_map"],
         signs=["all", "positive"],
         cmap="viridis",
+        fig_size=fig_size,
         show_colorbar=True,
     )
     fig.tight_layout()
